@@ -4,7 +4,7 @@ This is a library of routines for statistical analysis written in and for the Ad
 
 Currently supported functions are:
 
-*Get_Count *
+*Get_Count*
 
 Returns the count of an array
 
