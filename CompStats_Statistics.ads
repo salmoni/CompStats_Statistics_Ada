@@ -27,7 +27,15 @@ package CompStats_Statistics is
 
     function Get_Standard_Error_Of_Mean (Values: Values_Array) return Float;
 
+    function Get_Coefficient_Of_Variation (Values: Values_Array) return Float;
+
+    function Get_Unique_Values (Values : Values_Array) return Values_Array;
+
+    -- function Get_Slice (Values : Values_Array) return Integer;
+
 private
+
+    function Is_Value_In_Array (Values : Values_Array; Value : Float) return Boolean;
 
 end CompStats_Statistics;
 
