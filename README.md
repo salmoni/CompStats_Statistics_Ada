@@ -2,7 +2,7 @@
 
 This is a library of routines for statistical analysis written in and for the Ada language. Check out our other repositories for other languages. 
 
-Currently supported functions are:
+Currently supported public functions are:
 
 *Get_Count*
 
@@ -30,3 +30,6 @@ Returns the count of an array
 
 *Get_Standard_Error_Of_Mean*
 
+*Get_Coefficient_Of_Variation*
+
+*Get_Unique_Values*
