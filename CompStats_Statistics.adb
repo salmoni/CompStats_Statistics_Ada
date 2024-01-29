@@ -222,6 +222,43 @@ begin
 end Is_Value_In_Array;
 --------------------------------------------------------------
 
+function Get_Unique_Values_And_Frequencies (Values : Values_Array) return Values_and_Frequencies_Record is
+    Count       : Integer;
+    Index       : Integer;
+    Value       : Float;
+    Matched     : Boolean;
+    Values_and_Frequencies  : Values_and_Frequencies_Record;
+    Unique_Values : Values_Array (Integer range 1..Values'Length);
+    Unique_Frequencies : Frequencies_Array (Integer range 1..Values'Length);
+
+begin
+    Index := 1;
+    Count := Get_Count (Values);
+    Unique_Values (1) := Values (1);
+    Unique_Frequencies (1) := 1;
+
+    -- Values_and_Frequencies.Values := Get_Unique_Values (Values);
+    for idx in Integer range 2..Count loop
+        Value := Values (idx);
+        Matched := false;
+        for idy in Integer range 1..Index loop
+            if Unique_Values (idy) = Value then
+                Matched := true;
+                Unique_Frequencies (idy) := Unique_Frequencies (idy) + 1;
+            end if;
+        end loop;
+        if Matched = false then
+            Index := Index + 1;
+            Unique_Values (Index) := Value;
+            Unique_Frequencies (Index) := 1;
+        end if;
+    end loop;
+    Values_and_Frequencies.Values := Unique_Frequencies;
+    Values_and_Frequencies.Frequencies := Unique_Values;
+    return Values_and_Frequencies;
+end Get_Unique_Values_And_Frequencies;
+--------------------------------------------------------------
+
 function Get_Unique_Values (Values : Values_Array) return Values_Array is
     Count : INTEGER;
     Index : INTEGER;
